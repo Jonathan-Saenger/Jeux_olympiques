@@ -1,4 +1,4 @@
-using Jeux_Olympiques.Data;
+ï»¿using Jeux_Olympiques.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<Jeux_OlympiquesUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -26,7 +26,7 @@ builder.Services.AddScoped<ShoppingCart>(sp =>
     ShoppingCart.GetCart(sp.GetRequiredService<IHttpContextAccessor>().HttpContext,
                          sp.GetRequiredService<ApplicationDbContext>()));
 
-// Nécessaire pour accéder au HttpContext
+// NÃ©cessaire pour accÃ©der au HttpContext
 builder.Services.AddHttpContextAccessor();
 
 // Ajouter les sessions
@@ -36,7 +36,7 @@ builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 builder.Services.ConfigureApplicationCookie(o => {
-    o.ExpireTimeSpan = TimeSpan.FromDays(5); // Délai d'expiration de l'email de changement de password 5j
+    o.ExpireTimeSpan = TimeSpan.FromDays(5); // DÃ©lai d'expiration de l'email de changement de password 5j
     o.SlidingExpiration = true;
 });
 

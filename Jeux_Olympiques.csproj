@@ -13,18 +13,22 @@
     <Compile Remove="wwwroot\NewFolder2\**" />
     <Compile Remove="wwwroot\NewFolder3\**" />
     <Compile Remove="wwwroot\NewFolder\**" />
+    <Compile Remove="UnitTests\**" />
     <Content Remove="wwwroot\NewFolder1\**" />
     <Content Remove="wwwroot\NewFolder2\**" />
     <Content Remove="wwwroot\NewFolder3\**" />
     <Content Remove="wwwroot\NewFolder\**" />
+    <Content Remove="UnitTests\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder1\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder2\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder3\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="UnitTests\**" />
     <None Remove="wwwroot\NewFolder1\**" />
     <None Remove="wwwroot\NewFolder2\**" />
     <None Remove="wwwroot\NewFolder3\**" />
     <None Remove="wwwroot\NewFolder\**" />
+    <None Remove="UnitTests\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +42,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
